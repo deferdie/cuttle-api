@@ -1,0 +1,61 @@
+version: "2"
+services:
+  # The php-fpm service for cuttle
+  php:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    image: cuttle/cuttle-php
+    volumes:
+      - '.:/app'
+    environment:
+      DB_PASSWORD: secret
+      DB_DATABASE: cuttle
+      DB_USER: cuttle
+      DB_PASSWORD: secret
+      DB_HOST: cuttle-mysql
+    container_name: cuttle-php
+    networks:
+      - footfall
+  
+  # The Nginx service for cuttle
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    image: cuttle/cuttle-nginx
+    volumes:
+      - '.:/app'
+    ports:
+      - '8000:80'
+    container_name: cuttle-nginx
+    depends_on:
+      - php
+    networks:
+      - footfall
+
+  # The MySql service for cuttle
+  mysql:
+    image: 'mysql:5.7'
+    ports:
+      - '3307:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: cuttle
+      MYSQL_USER: cuttle
+      MYSQL_PASSWORD: secret
+    volumes:
+      - 'mysqldata:/var/lib/mysql'
+    container_name: cuttle-mysql
+    networks:
+      - footfall
+
+volumes:
+  mysqldata:
+    driver: local
+  redisdata:
+    driver: local
+
+networks:
+  footfall:
+    external: true
