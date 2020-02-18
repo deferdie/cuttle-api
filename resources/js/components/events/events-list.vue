@@ -26,6 +26,7 @@ export default {
     methods: {
         eventSelected(event) {
             this.selectedEvent = event;
+            this.$emit("selected", event);
         }
     }
 };

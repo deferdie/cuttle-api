@@ -19,6 +19,10 @@ Vue.component(
     "event-card",
     require("./components/events/event-card.vue").default
 );
+Vue.component(
+    "event-container",
+    require("./components/events/event-container.vue").default
+);
 
 Vue.component("avatar", require("./components/avatar/avatar.vue").default);
 

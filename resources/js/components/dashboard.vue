@@ -1,6 +1,6 @@
 <template>
     <div>
-        <events-list :events="events"></events-list>
+        <events-list :events="events" @selected="selectedEvent"></events-list>
         <event-container :event="event"></event-container>
     </div>
 </template>
@@ -17,6 +17,11 @@ export default {
             events: [],
             event: {}
         };
+    },
+    methods: {
+        selectedEvent(event) {
+            this.event = event;
+        }
     }
 };
 </script>
