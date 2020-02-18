@@ -6,9 +6,21 @@
 
 require("./bootstrap");
 
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 window.Vue = require("vue");
 
 Vue.component("dashboard", require("./components/dashboard.vue").default);
+Vue.component(
+    "events-list",
+    require("./components/events/events-list.vue").default
+);
+Vue.component(
+    "event-card",
+    require("./components/events/event-card.vue").default
+);
+
+Vue.component("avatar", require("./components/avatar/avatar.vue").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -16,6 +28,6 @@ Vue.component("dashboard", require("./components/dashboard.vue").default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
+new Vue({
     el: "#app"
 });
