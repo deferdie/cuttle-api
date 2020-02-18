@@ -2125,6 +2125,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     var _this = this;
@@ -2178,6 +2182,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     active: {
@@ -2206,6 +2214,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -38402,13 +38415,18 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "row" },
     [
       _c("events-list", {
+        staticClass: "col-4",
         attrs: { events: _vm.events },
         on: { selected: _vm.selectedEvent }
       }),
       _vm._v(" "),
-      _c("event-container", { attrs: { event: _vm.event } })
+      _c("event-container", {
+        staticClass: "col-8 pl-0",
+        attrs: { event: _vm.event }
+      })
     ],
     1
   )
@@ -38443,43 +38461,41 @@ var render = function() {
       on: { click: _vm.eventSelected }
     },
     [
-      _c(
-        "div",
-        { staticClass: "event-card-head d-flex justify-content-between" },
-        [
-          _c("div", [
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v(
-                "\n                " +
-                  _vm._s(_vm.event.exception_name) +
-                  "\n            "
-              )
-            ]),
-            _vm._v(" "),
+      _c("div", { staticClass: "event-card-head" }, [
+        _c("div", { staticClass: "text-wrap" }, [
+          _c("div", { staticClass: "font-weight-bold text-truncate" }, [
+            _vm._v(
+              "\n                " +
+                _vm._s(_vm.event.exception_name) +
+                "\n            "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "d-flex justify-content-between" }, [
             _c("div", [
               _c("span", [
                 _vm._v(
-                  "\n                    " +
+                  "\n                        " +
                     _vm._s(_vm.event.host) +
-                    "\n                "
+                    "\n                    "
                 )
               ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            [
-              _c("span", { staticClass: "font-weight-bold" }, [
-                _vm._v(_vm._s(_vm.event.reported_at))
-              ]),
-              _vm._v(" "),
-              _c("avatar")
-            ],
-            1
-          )
-        ]
-      )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v(_vm._s(_vm.event.reported_at))
+                ]),
+                _vm._v(" "),
+                _c("avatar")
+              ],
+              1
+            )
+          ])
+        ])
+      ])
     ]
   )
 }
@@ -38505,7 +38521,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("p", [_vm._v(_vm._s(_vm.event.message))])
+  return _c("div", [
+    _c("div", { staticClass: "paper-1 p-1" }, [
+      _c("p", { staticClass: "font-weight-bold m-0" }, [
+        _vm._v(_vm._s(_vm.event.exception_name))
+      ]),
+      _vm._v(" "),
+      _c("p", [_vm._v(_vm._s(_vm.event.message))])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

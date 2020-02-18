@@ -1,19 +1,23 @@
 <template>
     <div class="event-card" :class="{ active: active }" @click="eventSelected">
-        <div class="event-card-head d-flex justify-content-between">
-            <div>
-                <span class="font-weight-bold">
+        <div class="event-card-head">
+            <div class="text-wrap">
+                <div class="font-weight-bold text-truncate">
                     {{ event.exception_name }}
-                </span>
-                <div>
-                    <span>
-                        {{ event.host }}
-                    </span>
                 </div>
-            </div>
-            <div>
-                <span class="font-weight-bold">{{ event.reported_at }}</span>
-                <avatar></avatar>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span>
+                            {{ event.host }}
+                        </span>
+                    </div>
+                    <div>
+                        <span class="font-weight-bold">{{
+                            event.reported_at
+                        }}</span>
+                        <avatar></avatar>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

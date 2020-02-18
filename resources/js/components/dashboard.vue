@@ -1,7 +1,11 @@
 <template>
-    <div>
-        <events-list :events="events" @selected="selectedEvent"></events-list>
-        <event-container :event="event"></event-container>
+    <div class="row">
+        <events-list
+            :events="events"
+            @selected="selectedEvent"
+            class="col-4"
+        ></events-list>
+        <event-container :event="event" class="col-8 pl-0"></event-container>
     </div>
 </template>
 
