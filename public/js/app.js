@@ -2127,7 +2127,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    console.log("Component mounted.");
+    var _this = this;
+
+    axios.get("/api/exceptions").then(function (resp) {
+      _this.events = resp.data;
+    });
   },
   data: function data() {
     return {
@@ -2160,11 +2164,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     active: {
       "default": false,
       type: Boolean
+    },
+    event: {
+      type: Object
+    }
+  },
+  methods: {
+    eventSelected: function eventSelected() {
+      this.$emit("selected", this.event);
     }
   }
 });
@@ -2188,7 +2209,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    events: {
+      type: Array,
+      "default": function _default() {
+        return [];
+      }
+    }
+  },
+  data: function data() {
+    return {
+      selectedEvent: null
+    };
+  },
+  methods: {
+    eventSelected: function eventSelected(event) {
+      this.selectedEvent = event;
+    }
+  }
+});
 
 /***/ }),
 
@@ -6774,7 +6818,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.event-card {\r\n    padding: 7px;\r\n    cursor: pointer;\r\n    border: 1px solid #66666654;\r\n    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\r\n    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.event-card-head {\r\n    font-weight: bold;\r\n    padding: 0px;\r\n    margin: 0px;\n}\n.active {\r\n    background: #7dd45054;\n}\r\n", ""]);
+exports.push([module.i, "\n.event-card {\r\n    padding: 7px;\r\n    cursor: pointer;\r\n    border: 1px solid #66666654;\r\n    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\r\n    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.event-card-head {\r\n    padding: 0px;\r\n    margin: 0px;\n}\n.active {\r\n    background: #7dd45054;\n}\r\n", ""]);
 
 // exports
 
@@ -38361,21 +38405,48 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "event-card", class: { active: _vm.active } },
+    {
+      staticClass: "event-card",
+      class: { active: _vm.active },
+      on: { click: _vm.eventSelected }
+    },
     [
       _c(
         "div",
         { staticClass: "event-card-head d-flex justify-content-between" },
         [
-          _c("span", [
-            _vm._v(
-              "\n            syntax error, unexpected end of file\n        "
-            )
+          _c("div", [
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v(
+                "\n                " +
+                  _vm._s(_vm.event.exception_name) +
+                  "\n            "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("span", [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(_vm.event.host) +
+                    "\n                "
+                )
+              ])
+            ])
           ]),
           _vm._v(" "),
-          _c("avatar")
-        ],
-        1
+          _c(
+            "div",
+            [
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v(_vm._s(_vm.event.reported_at))
+              ]),
+              _vm._v(" "),
+              _c("avatar")
+            ],
+            1
+          )
+        ]
       )
     ]
   )
@@ -38404,13 +38475,16 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [
-      _c("event-card"),
-      _vm._v(" "),
-      _c("event-card", { attrs: { active: "" } }),
-      _vm._v(" "),
-      _c("event-card")
-    ],
+    _vm._l(_vm.events, function(event) {
+      return _c("event-card", {
+        key: "event_" + event.id,
+        attrs: {
+          event: event,
+          active: _vm.selectedEvent && _vm.selectedEvent.id === event.id
+        },
+        on: { selected: _vm.eventSelected }
+      })
+    }),
     1
   )
 }

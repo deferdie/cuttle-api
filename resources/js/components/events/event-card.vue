@@ -1,11 +1,20 @@
 <template>
-    <div class="event-card" :class="{ active: active }">
+    <div class="event-card" :class="{ active: active }" @click="eventSelected">
         <div class="event-card-head d-flex justify-content-between">
-            <span>
-                syntax error, unexpected end of file
-            </span>
-
-            <avatar></avatar>
+            <div>
+                <span class="font-weight-bold">
+                    {{ event.exception_name }}
+                </span>
+                <div>
+                    <span>
+                        {{ event.host }}
+                    </span>
+                </div>
+            </div>
+            <div>
+                <span class="font-weight-bold">{{ event.reported_at }}</span>
+                <avatar></avatar>
+            </div>
         </div>
     </div>
 </template>
@@ -16,6 +25,14 @@ export default {
         active: {
             default: false,
             type: Boolean
+        },
+        event: {
+            type: Object
+        }
+    },
+    methods: {
+        eventSelected() {
+            this.$emit("selected", this.event);
         }
     }
 };
@@ -31,7 +48,6 @@ export default {
 }
 
 .event-card-head {
-    font-weight: bold;
     padding: 0px;
     margin: 0px;
 }
