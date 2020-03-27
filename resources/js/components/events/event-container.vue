@@ -30,10 +30,40 @@
               </b-row>
             </b-tab>
             <b-tab title="Stack trace">
-              {{ event.stack_trace }}
+              <stack-trace :stack="JSON.parse(event.stack_trace)"></stack-trace>
             </b-tab>
             <b-tab title="Environment">
-              asdasd
+              <b-row>
+                <b-col class="col-2 font-weight-bold">Laravel config cached</b-col>
+                <b-col>{{ event.laravel_config_cached ? 'Yes' : 'No' }}</b-col>
+                <div class="w-100"></div>
+
+                <b-col class="col-2 font-weight-bold">Laravel version</b-col>
+                <b-col>{{ event.laravel_version }}</b-col>
+                <div class="w-100"></div>
+
+                <b-col class="col-2 font-weight-bold">PHP version</b-col>
+                <b-col>{{ event.php_version }}</b-col>
+                <div class="w-100"></div>
+
+                <b-col class="col-2 font-weight-bold">Laravel env</b-col>
+                <b-col>{{ event.environment }}</b-col>
+                <div class="w-100"></div>
+
+                <b-col class="col-2 font-weight-bold">Git hash</b-col>
+                <b-col>{{ event.git_hash }}</b-col>
+                <div class="w-100"></div>
+
+                <b-col class="col-2 font-weight-bold">Git branch</b-col>
+                <b-col>{{ event.git_branch }}</b-col>
+                <div class="w-100"></div>
+              </b-row>
+            </b-tab>
+            <b-tab title="Request">
+              <b-row>
+                <b-col class="col-2 font-weight-bold">Headers</b-col>
+                <b-col>{{ event.headers }}</b-col>
+              </b-row>
             </b-tab>
           </b-tabs>
         </b-card>

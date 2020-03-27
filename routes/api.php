@@ -18,5 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/exceptions', function (Request $request) {
-    return \App\Exception::all();
+    return \App\Exception::orderBy('id', 'desc')->get();
 });

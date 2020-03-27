@@ -2256,6 +2256,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     event: {
@@ -2307,6 +2337,44 @@ __webpack_require__.r(__webpack_exports__);
       this.$emit("selected", event);
     }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/stack-trace.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/events/stack-trace.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['stack']
 });
 
 /***/ }),
@@ -43011,7 +43079,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.avatar {\r\n    margin-top: 0px;\r\n    background: #f5656599;\r\n    padding: 5px;\r\n    border-radius: 50%;\r\n    font-weight: bold;\n}\r\n", ""]);
+exports.push([module.i, "\n.avatar {\n    margin-top: 0px;\n    background: #f5656599;\n    padding: 5px;\n    border-radius: 50%;\n    font-weight: bold;\n}\n", ""]);
 
 // exports
 
@@ -43030,7 +43098,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.event-card[data-v-005679de] {\r\n  padding: 7px;\r\n  cursor: pointer;\r\n  border: 1px solid #66666654;\r\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\r\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.event-card-head[data-v-005679de] {\r\n  padding: 0px;\r\n  margin: 0px;\n}\n.active[data-v-005679de] {\r\n  background: #7dd45054;\n}\r\n", ""]);
+exports.push([module.i, "\n.event-card[data-v-005679de] {\n  padding: 7px;\n  cursor: pointer;\n  border: 1px solid #66666654;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.event-card-head[data-v-005679de] {\n  padding: 0px;\n  margin: 0px;\n}\n.active[data-v-005679de] {\n  background: #7dd45054;\n}\n", ""]);
 
 // exports
 
@@ -75430,17 +75498,126 @@ var render = function() {
                         1
                       ),
                       _vm._v(" "),
-                      _c("b-tab", { attrs: { title: "Stack trace" } }, [
-                        _vm._v(
-                          "\n            " +
-                            _vm._s(_vm.event.stack_trace) +
-                            "\n          "
-                        )
-                      ]),
+                      _c(
+                        "b-tab",
+                        { attrs: { title: "Stack trace" } },
+                        [
+                          _c("stack-trace", {
+                            attrs: { stack: JSON.parse(_vm.event.stack_trace) }
+                          })
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
-                      _c("b-tab", { attrs: { title: "Environment" } }, [
-                        _vm._v("\n            asdasd\n          ")
-                      ])
+                      _c(
+                        "b-tab",
+                        { attrs: { title: "Environment" } },
+                        [
+                          _c(
+                            "b-row",
+                            [
+                              _c(
+                                "b-col",
+                                { staticClass: "col-2 font-weight-bold" },
+                                [_vm._v("Laravel config cached")]
+                              ),
+                              _vm._v(" "),
+                              _c("b-col", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.event.laravel_config_cached
+                                      ? "Yes"
+                                      : "No"
+                                  )
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "w-100" }),
+                              _vm._v(" "),
+                              _c(
+                                "b-col",
+                                { staticClass: "col-2 font-weight-bold" },
+                                [_vm._v("Laravel version")]
+                              ),
+                              _vm._v(" "),
+                              _c("b-col", [
+                                _vm._v(_vm._s(_vm.event.laravel_version))
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "w-100" }),
+                              _vm._v(" "),
+                              _c(
+                                "b-col",
+                                { staticClass: "col-2 font-weight-bold" },
+                                [_vm._v("PHP version")]
+                              ),
+                              _vm._v(" "),
+                              _c("b-col", [
+                                _vm._v(_vm._s(_vm.event.php_version))
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "w-100" }),
+                              _vm._v(" "),
+                              _c(
+                                "b-col",
+                                { staticClass: "col-2 font-weight-bold" },
+                                [_vm._v("Laravel env")]
+                              ),
+                              _vm._v(" "),
+                              _c("b-col", [
+                                _vm._v(_vm._s(_vm.event.environment))
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "w-100" }),
+                              _vm._v(" "),
+                              _c(
+                                "b-col",
+                                { staticClass: "col-2 font-weight-bold" },
+                                [_vm._v("Git hash")]
+                              ),
+                              _vm._v(" "),
+                              _c("b-col", [_vm._v(_vm._s(_vm.event.git_hash))]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "w-100" }),
+                              _vm._v(" "),
+                              _c(
+                                "b-col",
+                                { staticClass: "col-2 font-weight-bold" },
+                                [_vm._v("Git branch")]
+                              ),
+                              _vm._v(" "),
+                              _c("b-col", [
+                                _vm._v(_vm._s(_vm.event.git_branch))
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "w-100" })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-tab",
+                        { attrs: { title: "Request" } },
+                        [
+                          _c(
+                            "b-row",
+                            [
+                              _c(
+                                "b-col",
+                                { staticClass: "col-2 font-weight-bold" },
+                                [_vm._v("Headers")]
+                              ),
+                              _vm._v(" "),
+                              _c("b-col", [_vm._v(_vm._s(_vm.event.headers))])
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
                     ],
                     1
                   )
@@ -75492,6 +75669,67 @@ var render = function() {
   )
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/stack-trace.vue?vue&type=template&id=226b6a55&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/events/stack-trace.vue?vue&type=template&id=226b6a55& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("table", { staticClass: "table table-responsive" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.stack, function(item, index) {
+          return _c("tr", { key: index }, [
+            _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(index))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.file))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.line))]),
+            _vm._v(" "),
+            _c("td", [_vm._v("@mdo")])
+          ])
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("File")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Line number")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Handle")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -87684,6 +87922,7 @@ Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_1__["BootstrapVue"]);
 Vue.component('dashboard', __webpack_require__(/*! ./components/dashboard.vue */ "./resources/js/components/dashboard.vue")["default"]);
 Vue.component('events-list', __webpack_require__(/*! ./components/events/events-list.vue */ "./resources/js/components/events/events-list.vue")["default"]);
 Vue.component('event-card', __webpack_require__(/*! ./components/events/event-card.vue */ "./resources/js/components/events/event-card.vue")["default"]);
+Vue.component('stack-trace', __webpack_require__(/*! ./components/events/stack-trace.vue */ "./resources/js/components/events/stack-trace.vue")["default"]);
 Vue.component('event-container', __webpack_require__(/*! ./components/events/event-container.vue */ "./resources/js/components/events/event-container.vue")["default"]);
 Vue.component('avatar', __webpack_require__(/*! ./components/avatar/avatar.vue */ "./resources/js/components/avatar/avatar.vue")["default"]);
 /**
@@ -88124,6 +88363,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/events/stack-trace.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/events/stack-trace.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _stack_trace_vue_vue_type_template_id_226b6a55___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./stack-trace.vue?vue&type=template&id=226b6a55& */ "./resources/js/components/events/stack-trace.vue?vue&type=template&id=226b6a55&");
+/* harmony import */ var _stack_trace_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./stack-trace.vue?vue&type=script&lang=js& */ "./resources/js/components/events/stack-trace.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _stack_trace_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _stack_trace_vue_vue_type_template_id_226b6a55___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _stack_trace_vue_vue_type_template_id_226b6a55___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/events/stack-trace.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/events/stack-trace.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/events/stack-trace.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_stack_trace_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./stack-trace.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/stack-trace.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_stack_trace_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/events/stack-trace.vue?vue&type=template&id=226b6a55&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/events/stack-trace.vue?vue&type=template&id=226b6a55& ***!
+  \***************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_stack_trace_vue_vue_type_template_id_226b6a55___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./stack-trace.vue?vue&type=template&id=226b6a55& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/stack-trace.vue?vue&type=template&id=226b6a55&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_stack_trace_vue_vue_type_template_id_226b6a55___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_stack_trace_vue_vue_type_template_id_226b6a55___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -88142,8 +88450,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\ferdi\code\cuttle-api\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\ferdi\code\cuttle-api\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\defer\code\cuttle-api\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\defer\code\cuttle-api\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
