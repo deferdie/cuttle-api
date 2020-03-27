@@ -17,6 +17,8 @@ class Exception extends Model
         'host',
         'port',
         'method',
+        'user_id',
+        'message',
         'message',
         'git_hash',
         'severity',

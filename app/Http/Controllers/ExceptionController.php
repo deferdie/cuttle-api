@@ -15,7 +15,6 @@ class ExceptionController extends Controller
     public function store()
     {
         $payload = request()->all();
-        \Log::info($payload);
         $reportedAt = Carbon::createFromTimestamp($payload['created']);
 
         unset($payload['created']);

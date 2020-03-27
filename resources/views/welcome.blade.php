@@ -84,12 +84,6 @@
                     Laravel
                 </div>
 
-                <ul>
-                    @foreach(\App\Exception::all() as $exception)
-                        <li>{{$exception->message}}, {{$exception->file}}, {{$exception->line_number}}</li>
-                    @endforeach
-                </ul>
-
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>

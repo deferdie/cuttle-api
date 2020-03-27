@@ -18,6 +18,7 @@ class CreateExceptionsTable extends Migration
             $table->text('uri')->nullable();
             $table->string('file')->nullable();
             $table->string('host')->nullable();
+            $table->unsignedInteger('user_id')->nullable();
             $table->unsignedInteger('port')->nullable();
             $table->string('method')->nullable();
             $table->text('message')->nullable();
