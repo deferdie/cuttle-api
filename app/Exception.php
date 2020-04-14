@@ -19,6 +19,7 @@ class Exception extends Model
         'method',
         'user_id',
         'message',
+        'headers',
         'message',
         'git_hash',
         'severity',

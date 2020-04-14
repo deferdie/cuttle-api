@@ -14,13 +14,16 @@ class ExceptionController extends Controller
      */
     public function store()
     {
-        $payload = request()->all();
-        $reportedAt = Carbon::createFromTimestamp($payload['created']);
+        try {
+            $payload = request()->all();
+            $reportedAt = Carbon::createFromTimestamp($payload['created']);
+            $headers = json_encode($payload['headers']);
 
-        unset($payload['created']);
+            unset($payload['created']);
 
-        $exception = Exception::create(['reported_at' => $reportedAt] + $payload);
-
-        \Log::info($exception);
+            Exception::create(['reported_at' => $reportedAt, 'headers' => $headers] + $payload);
+        } catch (\Exception $e) {
+            \Log::info($e);
+        }
     }
 }

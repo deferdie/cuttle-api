@@ -25,6 +25,7 @@ class CreateExceptionsTable extends Migration
             $table->dateTime('reported_at')->nullable();
             $table->string('git_hash')->nullable();
             $table->string('severity')->nullable();
+            $table->text('headers')->nullable();
             $table->string('protocol')->nullable();
             $table->string('git_branch')->nullable();
             $table->unsignedInteger('line_number')->nullable();

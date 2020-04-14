@@ -59,10 +59,26 @@
                 <div class="w-100"></div>
               </b-row>
             </b-tab>
-            <b-tab title="Request">
+            <b-tab title="Headers">
               <b-row>
-                <b-col class="col-2 font-weight-bold">Headers</b-col>
-                <b-col>{{ event.headers }}</b-col>
+                <b-col v-if="event.headers">
+                  <table class="table table-dark table-striped table-sm">
+                    <thead>
+                      <tr>
+                        <th scope="col" colspan="6" class="min">Name</th>
+                        <th scope="col">Value</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="header in Object.keys(parseHeaders(event.headers))">
+                        <td scope="row" colspan="6" class="min">
+                          <b>{{header}}</b>
+                        </td>
+                        <td>{{parseHeaders(event.headers)[header]}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </b-col>
               </b-row>
             </b-tab>
           </b-tabs>
@@ -78,6 +94,22 @@ export default {
     event: {
       type: Object
     }
+  },
+
+  methods: {
+    parseHeaders(headers) {
+      if (headers) {
+        return JSON.parse(headers);
+      }
+    }
   }
 };
 </script>
+
+
+<style>
+td.min {
+  width: 1%;
+  white-space: nowrap;
+}
+</style>
