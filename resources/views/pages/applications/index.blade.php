@@ -29,7 +29,7 @@
                     <span class="mt-1 float-left">
                         Applications
                     </span>
-                    <b-button href="#" class="float-right" variant="primary" size="sm">
+                    <b-button href="{{ route('applications.create') }}" class="float-right" variant="primary" size="sm">
                         Create application
                     </b-button>
                 </div>

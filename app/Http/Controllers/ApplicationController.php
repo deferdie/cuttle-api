@@ -17,4 +17,14 @@ class ApplicationController extends Controller
             'applications' => Application::all()
         ]);
     }
+
+    /**
+     * Show view to create an application.
+     *
+     * @return void
+     */
+    public function create()
+    {
+        return view('pages.applications.create');
+    }
 }
