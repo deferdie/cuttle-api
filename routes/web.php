@@ -14,3 +14,4 @@ Route::get('applications', 'ApplicationController@index')->name('applications.in
 Route::get('applications/create', 'ApplicationController@create')->name('applications.create');
 Route::get('applications/{application}', 'ApplicationController@show')->name('applications.show');
 Route::post('applications', 'ApplicationController@store')->name('applications.store');
+Route::put('applications/{application}', 'ApplicationController@update')->name('applications.update');

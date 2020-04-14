@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Application;
 use App\Http\Requests\ApplicationStoreRequest;
+use App\Http\Requests\ApplicationUpdateRequest;
 
 class ApplicationController extends Controller
 {
@@ -55,5 +56,18 @@ class ApplicationController extends Controller
         ]);
 
         return redirect(route('applications.index'));
+    }
+
+    /**
+     * Update an application.
+     *
+     * @return void
+     */
+    public function update(ApplicationUpdateRequest $request, Application $application)
+    {
+        $application->name = $request->name;
+        $application->save();
+
+        return redirect()->back();
     }
 }
