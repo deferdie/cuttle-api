@@ -11,14 +11,17 @@
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
-                        <th scope="col">Value</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($applications as $application)
                         <tr>
-                            <td scope="row" colspan="6" class="min">
+                            <td scope="row">
                                 {{ $application->name }}
+                            </td>
+                            <td scope="row">
+                                <a href="{{ route('applications.show', $application) }}">Manage</a>
                             </td>
                         </tr>
                     @endforeach

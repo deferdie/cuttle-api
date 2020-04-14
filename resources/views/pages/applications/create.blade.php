@@ -7,15 +7,26 @@
             header="Applications"
             header-tag="header"
         >
-         <div>
+         <form method="POST" action="{{ route('applications.store') }}">
+            @csrf
             <b-form-group
                 id="fieldset-1"
-                description="Let us know your name."
-                label="Enter your name"
-                label-for="input-1"
+                label="Name"
+                label-for="name"
             >
-            <b-form-input id="input-1" v-model="name" :state="state" trim></b-form-input></b-form-group>
-        </div>
+                <b-form-input id="name" name="name" class="@error('name') is-invalid @enderror"></b-form-input>
+
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </b-form-group>
+
+            <b-button type="submit" variant="success" size="sm">
+                Confirm
+            </b-button>
+        </form>
 
             <template v-slot:header>
                 <div>

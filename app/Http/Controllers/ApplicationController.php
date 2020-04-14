@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Application;
+use App\Http\Requests\ApplicationStoreRequest;
 
 class ApplicationController extends Controller
 {
@@ -19,6 +20,18 @@ class ApplicationController extends Controller
     }
 
     /**
+     * Show application.
+     *
+     * @return void
+     */
+    public function show(Application $application)
+    {
+        return view('pages.applications.show', [
+            'application' => $application
+        ]);
+    }
+
+    /**
      * Show view to create an application.
      *
      * @return void
@@ -26,5 +39,21 @@ class ApplicationController extends Controller
     public function create()
     {
         return view('pages.applications.create');
+    }
+
+    /**
+     * Create a new application.
+     *
+     * @return void
+     */
+    public function store(ApplicationStoreRequest $request)
+    {
+        Application::create([
+            'name' => $request->name,
+            'app_id' => (string) \Str::uuid(),
+            'active' => true
+        ]);
+
+        return redirect(route('applications.index'));
     }
 }
