@@ -2302,6 +2302,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     event: {
@@ -75476,7 +75479,17 @@ var render = function() {
             _vm._v(_vm._s(_vm.event.exception_name))
           ]),
           _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(_vm.event.message))])
+          _c("p", { staticClass: "mb-0" }, [_vm._v(_vm._s(_vm.event.message))]),
+          _vm._v(" "),
+          _c(
+            "div",
+            [
+              _c("b-badge", { attrs: { variant: "dark" } }, [
+                _vm._v(_vm._s(_vm.event.application.name))
+              ])
+            ],
+            1
+          )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "paper-1" }, [

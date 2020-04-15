@@ -2,7 +2,10 @@
   <div v-if="event.id">
     <div class="paper-1 p-1">
       <p class="font-weight-bold m-0">{{ event.exception_name }}</p>
-      <p>{{ event.message }}</p>
+      <p class="mb-0">{{ event.message }}</p>
+      <div>
+        <b-badge variant="dark">{{ event.application.name }}</b-badge>
+      </div>
     </div>
     <div class="paper-1">
       <div>

@@ -32,7 +32,27 @@ class Exception extends Model
         'php_version',
         'stack_trace',
         'exception_name',
+        'application_id',
         'laravel_version',
         'laravel_config_cached',
     ];
+
+    /**
+     * The items to be eagerloaded.
+     *
+     * @var array
+     */
+    protected $with = [
+        'application'
+    ];
+
+    /**
+     * An exception belongs to an application.
+     *
+     * @return void
+     */
+    public function application()
+    {
+        return $this->belongsTo(Application::class);
+    }
 }

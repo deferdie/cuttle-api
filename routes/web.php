@@ -4,7 +4,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/exception', 'ExceptionController@store');
+Route::post('/exception/{appId}', 'ExceptionController@store');
 
 Auth::routes();
 

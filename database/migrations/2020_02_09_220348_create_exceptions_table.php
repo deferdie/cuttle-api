@@ -15,6 +15,7 @@ class CreateExceptionsTable extends Migration
     {
         Schema::create('exceptions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedInteger('application_id');
             $table->text('uri')->nullable();
             $table->string('file')->nullable();
             $table->string('host')->nullable();
