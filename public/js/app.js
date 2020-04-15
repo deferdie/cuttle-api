@@ -2181,9 +2181,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     active: {
@@ -43124,7 +43121,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.event-card[data-v-005679de] {\n  padding: 7px;\n  cursor: pointer;\n  border: 1px solid #66666654;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.event-card-head[data-v-005679de] {\n  padding: 0px;\n  margin: 0px;\n}\n.active[data-v-005679de] {\n  background: #7dd45054;\n}\n", ""]);
+exports.push([module.i, "\n.event-card[data-v-005679de] {\n  margin-bottom: 10px;\n  padding: 7px;\n  cursor: pointer;\n  border: 1px solid #66666654;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.event-card-head[data-v-005679de] {\n  padding: 0px;\n  margin: 0px;\n}\n.active[data-v-005679de] {\n  background: #7dd45054;\n}\n.custom-badge[data-v-005679de] {\n  float: right;\n  margin-top: -14px;\n  margin-right: -12px;\n}\n", ""]);
 
 // exports
 
@@ -75419,33 +75416,36 @@ var render = function() {
     },
     [
       _c("div", { staticClass: "event-card-head" }, [
-        _c("div", { staticClass: "text-wrap" }, [
-          _c("div", { staticClass: "font-weight-bold text-truncate" }, [
-            _vm._v("\n        " + _vm._s(_vm.event.exception_name) + "\n      ")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "d-flex justify-content-between" }, [
-            _c("div", [
-              _c("span", [
-                _vm._v(
-                  "\n            " + _vm._s(_vm.event.host) + "\n          "
-                )
-              ])
+        _c(
+          "div",
+          { staticClass: "text-wrap" },
+          [
+            _c("b-badge", { staticClass: "custom-badge" }, [
+              _vm._v(_vm._s(_vm.event.total))
             ]),
             _vm._v(" "),
-            _c(
-              "div",
-              [
-                _c("span", { staticClass: "font-weight-bold" }, [
-                  _vm._v(_vm._s(_vm.event.reported_at))
-                ]),
-                _vm._v(" "),
-                _c("avatar")
-              ],
-              1
-            )
-          ])
-        ])
+            _c("div", { staticClass: "font-weight-bold text-truncate" }, [
+              _vm._v(_vm._s(_vm.event.exception_name))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "d-flex justify-content-between" }, [
+              _c("div", [_c("span", [_vm._v(_vm._s(_vm.event.host))])]),
+              _vm._v(" "),
+              _c(
+                "div",
+                [
+                  _c("span", { staticClass: "font-weight-bold" }, [
+                    _vm._v(_vm._s(_vm.event.reported_at))
+                  ]),
+                  _vm._v(" "),
+                  _c("avatar")
+                ],
+                1
+              )
+            ])
+          ],
+          1
+        )
       ])
     ]
   )

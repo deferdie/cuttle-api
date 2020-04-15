@@ -2,14 +2,11 @@
   <div class="event-card" :class="{ active: active }" @click="eventSelected">
     <div class="event-card-head">
       <div class="text-wrap">
-        <div class="font-weight-bold text-truncate">
-          {{ event.exception_name }}
-        </div>
+        <b-badge class="custom-badge">{{ event.total }}</b-badge>
+        <div class="font-weight-bold text-truncate">{{ event.exception_name }}</div>
         <div class="d-flex justify-content-between">
           <div>
-            <span>
-              {{ event.host }}
-            </span>
+            <span>{{ event.host }}</span>
           </div>
           <div>
             <span class="font-weight-bold">{{ event.reported_at }}</span>
@@ -42,6 +39,7 @@ export default {
 
 <style scoped>
 .event-card {
+  margin-bottom: 10px;
   padding: 7px;
   cursor: pointer;
   border: 1px solid #66666654;
@@ -56,5 +54,11 @@ export default {
 
 .active {
   background: #7dd45054;
+}
+
+.custom-badge {
+  float: right;
+  margin-top: -14px;
+  margin-right: -12px;
 }
 </style>

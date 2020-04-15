@@ -18,5 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/exceptions', function (Request $request) {
-    return \App\Exception::orderBy('id', 'desc')->get();
+    return \App\Exception::select(['exceptions.*', \DB::raw('count(*) as total')])
+        ->orderBy('id', 'desc')
+        ->groupBy('message')
+        ->get();
 });
